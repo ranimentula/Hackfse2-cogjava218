@@ -1,0 +1,29 @@
+
+<div class="container" >    
+    <form [formGroup]="form" (ngSubmit)="submit()"> 
+        <div class="form-group">
+            <div class="input-class">
+                <label for="company">Company:</label> 
+                <select formControlName="company" class="form-control">  
+                    <option disabled>Select Company</option> 
+                    console.log(company.companyName)
+                    <option *ngFor="let company of companyList" [value]="company.companyCode">{{company.companyName}}</option>  
+                </select>  
+            </div>
+          
+            <div class="input-class">
+                <label for="StartDate">Start date:</label>
+                <input type="date" class="form-control" id="StartDate" name="StartDate"
+                [ngModel]="StartDate | date:'yyyy-MM-dd'"  formControlName="StartDate">
+            </div>
+            <div class="input-class">
+                <label for="EndDate">End date:</label>
+                <input type="date" class="form-control" id="EndDate" name="EndDate"
+                [ngModel]="EndDate | date:'yyyy-MM-dd'"  formControlName="EndDate">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Search</button>  
+    </form>  
+
+
+</div>  

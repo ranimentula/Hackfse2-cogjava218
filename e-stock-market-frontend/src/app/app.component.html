@@ -1,0 +1,7 @@
+<h1 style="text-align: center;"> E STOCK MARKET </h1>
+
+
+<hr>
+<app-search-module (messageEvent)="receiveMsg($event)"></app-search-module>
+<hr>
+<app-display-module [stockData]="stocks" [companyData]="companyData"></app-display-module>

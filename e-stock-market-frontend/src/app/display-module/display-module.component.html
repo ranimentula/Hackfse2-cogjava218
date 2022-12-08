@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row" *ngIf="companyData not null">
+        <div class="col-sm">
+            Company Code
+           <h3> {{companyData.companyCode }} </h3>
+        </div>
+        <div class="col-sm">
+            Company Name
+           <h3> {{companyData.companyName }} </h3>
+        </div>
+        <div class="col-sm">
+            Company CEO
+            <h3>{{companyData.companyCeo }}</h3>
+        </div>
+        <div class="col-sm">
+            Company Turnover
+            <h3>Rs.{{companyData.companyTurnover }}</h3>
+        </div>
+        <div class="col-sm">
+            Stock Exchange
+            <h3>{{companyData.stockExchange }}</h3>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col">
+        <table class="data-list">
+            <tr *ngIf="stockData.stocks not null">
+                <th>Stock Price</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+                <tr *ngFor="let data of stockData.stocks">
+                    <td>{{ data.stockPrice }}</td>
+                    <td>{{ data.date | date:'dd-MM-yyyy'}}</td>
+                    <td>{{ data.time }}</td>
+                </tr>
+        </table>
+    </div>
+    <div class="col">
+        <table class="stats-list" *ngIf="stockData not null">
+            <tr>
+                <th>Avg price</th>
+                <td>{{stockData.avgStockPrice}}</td>
+            </tr>
+                <tr>
+                    <th>Min price</th>
+                <td>{{stockData.minStockPrice}}</td>
+                </tr>
+                <tr>
+                    <th>Max price</th>
+                <td>{{stockData.maxStockPrice}}</td>
+                </tr>
+        </table>
+    </div>
+    </div>
+</div>
+
+
+
